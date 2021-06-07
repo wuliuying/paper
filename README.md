@@ -405,17 +405,17 @@ Lev Size Roa Cap_Int Inv_Int MktBook Intang Largeholder Age DA lnPerCapitaGDP IN
 //为避免异常值的影响，对连续变量进行了 1%的 winsorize 处理。
 
 ```
-### 3.24实证分析(经济周期为数值)
+## 3.3实证分析(经济周期为数值)
 
 
-**描述性统计**
+### 3.31描述性统计
 ```
 logout , save("描述性统计") excel replace:
 
 tabstat ETR1 ETR2 ETR3 lnRGDP_hp100 lnRGDP_hp625 gap_boom100 gap_recession100 gap_boom625 gap_recession625 ///
 Lev Size Roa Cap_Int Inv_Int MktBook Intang Largeholder Age DA lnPerCapitaGDP IND2_GDP Open,s(N mean p25 p50 p75 min max sd) c(s)     
 ```
-**相关系数矩阵**
+### 3.32相关系数矩阵
 ```
 logout , save("相关系数矩阵") excel replace:
 
@@ -430,7 +430,7 @@ pwcorr_a ETR1 ETR2 ETR3 lnRGDP_hp100 lnRGDP_hp625 gap_boom100 gap_recession100 g
 
 
 
-**①基准回归**
+### 3.33基准回归
 
 
     *****加入所有控制变量*****
@@ -906,7 +906,7 @@ esttab  m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 using 省份ETR3_gap625.c
 drop _est_m* 
 
 ```
-**②异质性分析**
+### 3.34异质性分析
 
 **-----分地区------**	
 ```
@@ -1480,7 +1480,7 @@ est sto m9
 esttab  m1 m2 m3 m4 m5 m6 m7 m8 m9 using medgap625.csv,compress no gap b(%8.4f) se(%8.4f) star(* 0.1 ** 0.05 *** 0.01)
 drop _est_m*
 ```
-**机制分析**
+### 3.35机制分析
 
 **-----税收征管------**
 ```
@@ -2215,7 +2215,7 @@ drop _est_m*
 
 
 
-### 3.25实证分析(经济周期为虚拟变量)
+## 3.4实证分析(经济周期为虚拟变量)
 
 
 **-----税率周期（加入时间趋势项）-----**
